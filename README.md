@@ -38,8 +38,7 @@ SMALL               MEDIUM             LARGE
  translation,     explanation,       complex code,
  quick lookup)    summary)           multi-step reasoning)
   ↓                    ↓                  ↓
-TinyLlama /       Qwen2.5 3B /       Qwen2.5 7B /
-DeepSeek 1.3B     Phi-3              Gemma3 4B
+TinyLlama          Phi-3              Qwen2.5 7B
   ↓                    ↓                  ↓
         Response + Energy + CO₂ + Green Score
         displayed in the Streamlit dashboard
@@ -131,15 +130,11 @@ When a rule fires, confidence is capped at 85% and a `rule_override` flag is set
 
 ### Complexity → Model Mapping
 
-| Complexity | Model options | Size | Est. energy/inference |
+| Complexity | Model | Size | Est. energy/inference |
 |---|---|---|---|
 | **small** | TinyLlama | 0.64 GB | 0.000032 kWh |
-| **small** | DeepSeek-Coder 1.3B | 0.78 GB | 0.000039 kWh |
-| **small** | Qwen2 1.5B | 0.93 GB | 0.000047 kWh |
-| **medium** | Qwen2.5 3B | 1.9 GB | 0.000095 kWh |
 | **medium** | Phi-3 | 2.2 GB | 0.000110 kWh |
 | **large** | Qwen2.5 7B *(baseline)* | 4.7 GB | 0.000235 kWh |
-| **large** | Gemma3 4B | 3.3 GB | 0.000165 kWh |
 
 The **baseline** is always running `qwen2.5:7b`. All energy savings are computed relative to this.
 
@@ -148,7 +143,7 @@ The **baseline** is always running `qwen2.5:7b`. All energy savings are computed
 | Prompt | Class | Routed to | Energy saved vs baseline |
 |---|---|---|---|
 | "What is the capital of France?" | small | TinyLlama | ~87% |
-| "Write a binary search in Python" | medium | Qwen2.5 3B | ~60% |
+| "Write a binary search in Python" | medium | Phi-3 | ~53% |
 | "Prove √2 is irrational" | large | Qwen2.5 7B | 0% (appropriate) |
 
 ---
@@ -325,7 +320,7 @@ python compare_pandas_vs_spark.py
 Download from **https://ollama.com/download** and run the installer, then pull at least one model per tier:
 
 ```powershell
-# Small tier (pick one — TinyLlama is fastest to download)
+# Small tier
 ollama pull tinyllama          # 0.6 GB
 
 # Medium tier
@@ -334,8 +329,6 @@ ollama pull phi3               # 2.2 GB
 # Large tier (the baseline — needed for energy comparison)
 ollama pull qwen2.5:7b         # 4.7 GB
 ```
-
-You don't need all models. The router will pick the best available model for each tier.
 
 ### 4. Verify the classifier loads correctly
 

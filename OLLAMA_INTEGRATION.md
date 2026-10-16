@@ -222,9 +222,14 @@ To add support for new Ollama models, update `OLLAMA_MODELS` in `ollama_integrat
 
 ```python
 OLLAMA_MODELS = {
-    "your-model:tag": {"size": X.X, "name": "Your Model Name"},
+    "your-model:tag": {"size": X.X, "name": "Your Model Name", "timeout": 120},
 }
 ```
+
+**Current supported models:**
+- `tinyllama:latest` - Small complexity (0.64 GB)
+- `phi3:latest` - Medium complexity (2.2 GB)
+- `qwen2.5:7b` - Large complexity/baseline (4.7 GB)
 
 ---
 

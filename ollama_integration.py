@@ -20,17 +20,9 @@ OLLAMA_API_URL = "http://localhost:11434/api/generate"
 
 # Available Ollama models with their sizes (in GB) and recommended timeout
 OLLAMA_MODELS = {
-    "gemma3:4b": {"size": 3.3, "name": "Gemma 3 (4B)", "timeout": 180},
-    "deepseek-r1:1.5b": {"size": 1.1, "name": "DeepSeek R1 (1.5B)", "timeout": 90},
-    "qwen2.5:3b": {"size": 1.9, "name": "Qwen 2.5 (3B)", "timeout": 120},
-    "qwen2.5:7b": {"size": 4.7, "name": "Qwen 2.5 (7B)", "timeout": 600},  # Increased to 600s (10 min)
-    "zephyr:latest": {"size": 4.1, "name": "Zephyr", "timeout": 240},  # Increased to 240s
-    "deepseek-coder:1.3b": {"size": 0.776, "name": "DeepSeek Coder (1.3B)", "timeout": 90},
-    "qwen2:1.5b": {"size": 0.934, "name": "Qwen 2 (1.5B)", "timeout": 90},
     "tinyllama:latest": {"size": 0.637, "name": "TinyLlama", "timeout": 60},
-    "qwen2:latest": {"size": 4.4, "name": "Qwen 2", "timeout": 240},  # Increased to 240s
     "phi3:latest": {"size": 2.2, "name": "Phi-3", "timeout": 120},
-    "qwen2.5-coder:latest": {"size": 4.7, "name": "Qwen 2.5 Coder", "timeout": 300},  # Increased to 300s
+    "qwen2.5:7b": {"size": 4.7, "name": "Qwen 2.5 (7B)", "timeout": 600},  # Increased to 600s (10 min)
 }
 
 # Real hardware energy measurement using CodeCarbon
